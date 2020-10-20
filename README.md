@@ -44,6 +44,7 @@ Section: Additional Information
 
 #### What's Next
 - Ask for community input
+- Add to Accouting Menus, below JEs
 - Tests
 - Request addition into ERPNext Core
 
