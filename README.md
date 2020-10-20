@@ -3,7 +3,7 @@
 ERPNext Expense Request
 
 ## Doctype Setup
-### Expense Request
+#### Expense Request
 ```
 Users
 - System/Desk Users - can draft
@@ -25,7 +25,7 @@ Section: Additional Information
 - Requested by (Data)
 ```
 
-### Expense Settings (?)
+#### Expense Settings (?)
 - Expense Approver - Can be done from Accounts settings
 
 ## Expense Workflow
@@ -36,10 +36,9 @@ Section: Additional Information
 ## Features
 - Create Journal Entry
 
-Installation
+## Installation
 
 `bench get-app https://github.com/the-bantoo/expense_request.git`
-
 `bench --site site-name install-app expense_request`
 
 
@@ -47,6 +46,8 @@ Installation
 - Ask for community input
 - Tests
 - Request addition into ERPNext Core
+
+
 
 #### License
 
