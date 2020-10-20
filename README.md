@@ -9,8 +9,7 @@ Users
 - System/Desk Users - can draft
 - Expense Approver - can submit
 
-Doctype Fields
-- ID - (auto, titlefield) - EXP-YEAR-#######
+Doctype Fields - EXP-YEAR-#######
 - Request Date (Auto: Read-only Datetime)
 - Required Date (Required: Date)
 
@@ -26,23 +25,28 @@ Section: Additional Information
 - Requested by (Data)
 ```
 
-### Expense Settings
+### Expense Settings (?)
 - Expense Approver - Can be done from Accounts settings
 
 ## Expense Workflow
-- Draft
-- Submit
-- Approve
+1. Draft
+2. Submit
+3. Approve
 
 ## Features
 - Create Journal Entry
-- 
 
 Installation
 
 `bench get-app https://github.com/the-bantoo/expense_request.git`
 
 `bench --site site-name install-app expense_request`
+
+
+#### What's Next
+- Ask for community input
+- Tests
+- Request addition into ERPNext Core
 
 #### License
 
