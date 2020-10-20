@@ -1,0 +1,126 @@
+{
+ "allow_events_in_timeline": 1,
+ "allow_import": 1,
+ "autoname": "EXP-.YYYY.-.#####",
+ "creation": "2020-10-20 19:17:16.499838",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "column_break_1",
+  "posting_date",
+  "required_by",
+  "expense_details_section",
+  "expense_details",
+  "additional_information_section",
+  "remarks",
+  "column_break_8",
+  "total",
+  "mode_of_payment",
+  "requested_by",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Posting Date",
+   "read_only": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "required_by",
+   "fieldtype": "Datetime",
+   "label": "Required By",
+   "reqd": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "expense_details_section",
+   "fieldtype": "Section Break",
+   "label": "Expense Details"
+  },
+  {
+   "fieldname": "expense_details",
+   "fieldtype": "Table",
+   "label": "Expense Details",
+   "options": "Expense Request Detail"
+  },
+  {
+   "fieldname": "additional_information_section",
+   "fieldtype": "Section Break",
+   "label": "Additional Information"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "remarks",
+   "fieldtype": "Text",
+   "in_preview": 1,
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "mode_of_payment",
+   "fieldtype": "Link",
+   "label": "Mode of Payment",
+   "options": "Mode of Payment",
+   "reqd": 1
+  },
+  {
+   "fieldname": "requested_by",
+   "fieldtype": "Data",
+   "label": "Requested By",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Expense Request",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2020-10-20 22:08:32.810830",
+ "modified_by": "Administrator",
+ "module": "Expense Request",
+ "name": "Expense Request",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,49 @@
+{
+ "creation": "2020-10-20 19:06:30.613581",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "expense_account",
+  "description",
+  "amount"
+ ],
+ "fields": [
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "expense_account",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Expense Account",
+   "options": "Account",
+   "reqd": 1
+  },
+  {
+   "bold": 1,
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Description"
+  },
+  {
+   "bold": 1,
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount",
+   "precision": "2",
+   "reqd": 1
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-10-20 22:08:46.360021",
+ "modified_by": "Administrator",
+ "module": "Expense Request",
+ "name": "Expense Request Detail",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
