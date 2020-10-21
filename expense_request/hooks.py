@@ -81,7 +81,7 @@ app_license = "MIT"
 
 doc_events = {
 	"Expense Entry": {
-		"validate": "expense_request.api.setup"
+		"on_update": "expense_request.api.setup"
 	}
 }
 

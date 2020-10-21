@@ -1,0 +1,23 @@
+{
+ "align_labels_right": 0,
+ "creation": "2020-10-22 00:34:08.359596",
+ "custom_format": 0,
+ "disabled": 0,
+ "doc_type": "Expense Entry",
+ "docstatus": 0,
+ "doctype": "Print Format",
+ "font": "Default",
+ "format_data": "[{\"fieldname\": \"print_heading_template\", \"fieldtype\": \"Custom HTML\", \"options\": \"<div class=\\\"print-heading\\\">\\t\\t\\t\\t<h2>Expense Entry<br><small>{{ doc.name }}</small>\\t\\t\\t\\t</h2></div>\"}, {\"fieldtype\": \"Section Break\", \"label\": \"\"}, {\"fieldtype\": \"Column Break\"}, {\"fieldname\": \"mode_of_payment\", \"print_hide\": 0, \"align\": \"right\", \"label\": \"Mode of Payment\"}, {\"fieldname\": \"payment_reference\", \"print_hide\": 0, \"align\": \"right\", \"label\": \"Payment Reference\"}, {\"fieldname\": \"clearance_date\", \"print_hide\": 0, \"align\": \"right\", \"label\": \"Clearance Date\"}, {\"fieldname\": \"workflow_state\", \"print_hide\": 0, \"align\": \"right\", \"label\": \"Status\"}, {\"fieldtype\": \"Column Break\"}, {\"fieldname\": \"posting_date\", \"print_hide\": 0, \"align\": \"right\", \"label\": \"Posting Date\"}, {\"fieldname\": \"required_by\", \"print_hide\": 0, \"align\": \"right\", \"label\": \"Required Date\"}, {\"fieldtype\": \"Section Break\", \"label\": \"Expense Details\"}, {\"fieldtype\": \"Column Break\"}, {\"fieldname\": \"expenses\", \"print_hide\": 0, \"label\": \"Expense Details\", \"visible_columns\": [{\"fieldname\": \"expense_account\", \"print_width\": \"\", \"print_hide\": 0}, {\"fieldname\": \"description\", \"print_width\": \"\", \"print_hide\": 0}, {\"fieldname\": \"amount\", \"print_width\": \"\", \"print_hide\": 0}]}, {\"fieldtype\": \"Section Break\", \"label\": \"Additional Information\"}, {\"fieldtype\": \"Column Break\"}, {\"fieldname\": \"remarks\", \"print_hide\": 0, \"align\": \"right\", \"label\": \"Remarks\"}, {\"fieldname\": \"project\", \"print_hide\": 0, \"align\": \"right\", \"label\": \"Project\"}, {\"fieldname\": \"requested_by\", \"print_hide\": 0, \"align\": \"right\", \"label\": \"Requested By\"}, {\"fieldname\": \"approved_by\", \"print_hide\": 0, \"align\": \"right\", \"label\": \"Approved By\"}, {\"fieldtype\": \"Column Break\"}, {\"fieldname\": \"total\", \"print_hide\": 0, \"align\": \"left\", \"label\": \"Total\"}]",
+ "idx": 0,
+ "line_breaks": 0,
+ "modified": "2020-10-22 00:43:37.530205",
+ "modified_by": "adam.daveed@gmail.com",
+ "module": "Expense Request",
+ "name": "Expense",
+ "owner": "adam.daveed@gmail.com",
+ "print_format_builder": 1,
+ "print_format_type": "Jinja",
+ "raw_printing": 0,
+ "show_section_headings": 0,
+ "standard": "Yes"
+}
