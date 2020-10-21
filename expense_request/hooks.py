@@ -2,8 +2,8 @@
 from __future__ import unicode_literals
 from . import __version__ as app_version
 
-app_name = "expenses"
-app_title = "Expenses"
+app_name = "expense_request"
+app_title = "Expense Request"
 app_publisher = "Bantoo"
 app_description = "ERPNext Expense Request"
 app_icon = "octicon octicon-file-directory"
@@ -81,7 +81,7 @@ app_license = "MIT"
 
 doc_events = {
 	"Expense Entry": {
-		"validate": "expenses.api.setup"
+		"validate": "expense_request.api.setup"
 	}
 }
 

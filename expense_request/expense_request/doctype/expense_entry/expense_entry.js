@@ -14,7 +14,7 @@ frappe.ui.form.on('Expense Entry', {
 	refresh: function(frm) {
 		frm.add_custom_button(__('Journal Entry'), function(){
 			frappe.call({
-				method: "expenses.api.initialise_journal_entry",
+				method: "expense_request.api.initialise_journal_entry",
 				args: {
 					expense_entry_name: frm.doc.name
 				},
