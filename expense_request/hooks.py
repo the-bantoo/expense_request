@@ -2,8 +2,8 @@
 from __future__ import unicode_literals
 from . import __version__ as app_version
 
-app_name = "expense_request"
-app_title = "Expense Request"
+app_name = "expenses"
+app_title = "Expenses"
 app_publisher = "Bantoo"
 app_description = "ERPNext Expense Request"
 app_icon = "octicon octicon-file-directory"
@@ -15,12 +15,12 @@ app_license = "MIT"
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/expense_request/css/expense_request.css"
-# app_include_js = "/assets/expense_request/js/expense_request.js"
+# app_include_css = "/assets/expenses/css/expenses.css"
+# app_include_js = "/assets/expenses/js/expenses.js"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/expense_request/css/expense_request.css"
-# web_include_js = "/assets/expense_request/js/expense_request.js"
+# web_include_css = "/assets/expenses/css/expenses.css"
+# web_include_js = "/assets/expenses/js/expenses.js"
 
 # include js in page
 # page_js = {"page" : "public/js/file.js"}
@@ -43,7 +43,7 @@ app_license = "MIT"
 # }
 
 # Website user home page (by function)
-# get_website_user_home_page = "expense_request.utils.get_home_page"
+# get_website_user_home_page = "expenses.utils.get_home_page"
 
 # Generators
 # ----------
@@ -54,14 +54,14 @@ app_license = "MIT"
 # Installation
 # ------------
 
-# before_install = "expense_request.install.before_install"
-# after_install = "expense_request.install.after_install"
+# before_install = "expenses.install.before_install"
+# after_install = "expenses.install.after_install"
 
 # Desk Notifications
 # ------------------
 # See frappe.core.notifications.get_notification_config
 
-# notification_config = "expense_request.notifications.get_notification_config"
+# notification_config = "expenses.notifications.get_notification_config"
 
 # Permissions
 # -----------
@@ -79,51 +79,48 @@ app_license = "MIT"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-#	}
-# }
+doc_events = {
+	"Expense Entry": {
+		"validate": "expenses.api.setup"
+	}
+}
 
 # Scheduled Tasks
 # ---------------
 
 # scheduler_events = {
 # 	"all": [
-# 		"expense_request.tasks.all"
+# 		"expenses.tasks.all"
 # 	],
 # 	"daily": [
-# 		"expense_request.tasks.daily"
+# 		"expenses.tasks.daily"
 # 	],
 # 	"hourly": [
-# 		"expense_request.tasks.hourly"
+# 		"expenses.tasks.hourly"
 # 	],
 # 	"weekly": [
-# 		"expense_request.tasks.weekly"
+# 		"expenses.tasks.weekly"
 # 	]
 # 	"monthly": [
-# 		"expense_request.tasks.monthly"
+# 		"expenses.tasks.monthly"
 # 	]
 # }
 
 # Testing
 # -------
 
-# before_tests = "expense_request.install.before_tests"
+# before_tests = "expenses.install.before_tests"
 
 # Overriding Methods
 # ------------------------------
 #
 # override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "expense_request.event.get_events"
+# 	"frappe.desk.doctype.event.event.get_events": "expenses.event.get_events"
 # }
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
 # along with any modifications made in other Frappe apps
 # override_doctype_dashboards = {
-# 	"Task": "expense_request.task.get_dashboard_data"
+# 	"Task": "expenses.task.get_dashboard_data"
 # }
-

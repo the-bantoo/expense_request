@@ -39,7 +39,7 @@
  "modified": "2020-10-20 22:08:46.360021",
  "modified_by": "Administrator",
  "module": "Expense Request",
- "name": "Expense Request Detail",
+ "name": "Expense Entry Item",
  "owner": "Administrator",
  "permissions": [],
  "quick_entry": 1,
