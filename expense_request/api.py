@@ -24,8 +24,15 @@ Section: Expenses
 
 Tests
 
+More Features
+- Cost Centers
+- Tax Templates
+- Separate Request Document
+
 
 Done
+  - Issues Fixed
+    - Wire Transfer requires reference date, and minor improvements
   - Prevent duplicate entry - done
   - Workflow: Pending Approval, Approved (set-approved by)
   - Creation of JV
@@ -131,8 +138,9 @@ def make_journal_entry(expense_entry):
 
         user = frappe.get_doc("User", frappe.session.user)
 
-        expense_entry.approved_by = str(user.first_name) + ' ' + str(user.last_name)
-        #expense_entry.save()
+        full_name = str(user.first_name) + ' ' + str(user.last_name)
+        expense_entry.db_set('approved_by', full_name)
+        
 
         je.insert()
         je.submit()
