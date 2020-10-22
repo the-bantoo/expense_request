@@ -4,15 +4,25 @@ from frappe import utils
 
 """
 Todo
-- Alert Approvers
-- Print Format - Add signatures
-  - approver vanishing
 
-Accounts Settings Customisation
-- Section: Expenses
-    - Checkbox to Automatically Create Journal Entries
-    - Settings - Petty Cash / Expenses payment Account - Set as default
-- Add fixture in accounts settings
+Add all the fixtures to the app so that it is fully portable
+a. Workflows
+b. Accounts Settings Fields
+
+Fix minor issues
+a. Approver field vanishing
+b. Cant set custom print format as default
+
+Complete functionality
+a. Alert Approvers
+b. Print Format polish-up - Add signatures
+c. Add settings fields to Accounts Settings
+
+Section: Expenses
+- Checkbox to Automatically Create Journal Entries
+- Settings - Default Expenses Payment Account
+
+Tests
 
 
 Done
@@ -29,14 +39,23 @@ def setup(expense_entry, method):
     # add expenses and set the total field
 
     total = 0
+    count = 0
     for detail in expense_entry.expenses:
-        total += float(detail.amount)
+        total += float(detail.amount)        
+        count += 1
 
     expense_entry.total = total
+    expense_entry.quantity = count
+
     make_journal_entry(expense_entry)
+
+    
+
 
 @frappe.whitelist()
 def initialise_journal_entry(expense_entry_name):
+    # make JE from javascript form Make JE button
+
     make_journal_entry(
         frappe.get_doc('Expense Entry', expense_entry_name)
     )
@@ -71,7 +90,7 @@ def make_journal_entry(expense_entry):
 
         pay_account = ""
 
-        if expense_entry.mode_of_payment != "Cash" and (not expense_entry.payment_reference):
+        if (expense_entry.mode_of_payment != "Cash" and expense_entry.mode_of_payment != "Wire Transfer") and (not expense_entry.payment_reference):
             frappe.throw(
                 title="Enter Payment Reference",
                 msg="Payment Reference is Required for all non-cash payments."
@@ -104,8 +123,9 @@ def make_journal_entry(expense_entry):
             'user_remark': expense_entry.remarks,
             'mode_of_payment': expense_entry.mode_of_payment,
             'cheque_date': expense_entry.clearance_date,
+            'reference_date': expense_entry.clearance_date,
             'cheque_no': expense_entry.payment_reference,
-            'pay_to_recd_from': expense_entry.requested_by,
+            'pay_to_recd_from': expense_entry.payment_to,
             'bill_no': expense_entry.name
         })
 

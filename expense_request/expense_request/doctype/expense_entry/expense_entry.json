@@ -12,14 +12,17 @@
   "column_break_1",
   "posting_date",
   "required_by",
+  "payment_to",
   "expense_details_section",
   "expenses",
+  "section_break_8",
+  "quantity",
+  "column_break_9",
+  "total",
   "additional_information_section",
   "remarks",
-  "requested_by",
   "approved_by",
   "column_break_8",
-  "total",
   "mode_of_payment",
   "payment_reference",
   "clearance_date",
@@ -88,12 +91,6 @@
    "reqd": 1
   },
   {
-   "fieldname": "requested_by",
-   "fieldtype": "Data",
-   "label": "Requested By",
-   "reqd": 1
-  },
-  {
    "fieldname": "amended_from",
    "fieldtype": "Link",
    "label": "Amended From",
@@ -133,10 +130,10 @@
    "label": "Payment Reference"
   },
   {
-   "depends_on": "eval:doc.mode_of_payment == \"Cheque\"",
+   "depends_on": "eval:doc.mode_of_payment == \"Cheque\" || doc.mode_of_payment == \"Wire Transfer\";",
    "fieldname": "clearance_date",
    "fieldtype": "Date",
-   "label": "Clearance Date"
+   "label": "Reference / Clearance Date"
   },
   {
    "fieldname": "status",
@@ -146,15 +143,34 @@
    "options": "Pending\nApproved\nRejected"
   },
   {
-   "allow_on_submit": 1,
    "fieldname": "approved_by",
    "fieldtype": "Data",
    "label": "Approved By",
    "read_only": 1
+  },
+  {
+   "fieldname": "payment_to",
+   "fieldtype": "Data",
+   "label": "Payment To",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "quantity",
+   "fieldtype": "Read Only",
+   "label": "Quantity",
+   "print_hide": 1
   }
  ],
  "is_submittable": 1,
- "modified": "2020-10-22 00:50:11.869973",
+ "modified": "2020-10-22 09:58:05.990529",
  "modified_by": "adam.daveed@gmail.com",
  "module": "Expense Request",
  "name": "Expense Entry",
