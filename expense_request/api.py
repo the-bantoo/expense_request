@@ -67,14 +67,27 @@ Enhancements
 
 
 def setup(expense_entry, method):
-
-    # add expenses and set the total field
+    # add expenses up and set the total field
+    # add default project and cost center to expense items
 
     total = 0
     count = 0
+    expense_items = []
+
+    
     for detail in expense_entry.expenses:
         total += float(detail.amount)        
         count += 1
+        
+        if not detail.project and expense_entry.default_project:
+            detail.project = expense_entry.default_project
+        
+        if not detail.cost_center and expense_entry.default_cost_center:
+            detail.cost_center = expense_entry.default_cost_center
+
+        expense_items.append(detail)
+
+    expense_entry.expenses = expense_items
 
     expense_entry.total = total
     expense_entry.quantity = count
@@ -110,39 +123,30 @@ def make_journal_entry(expense_entry):
 
         accounts = []
 
-        for detail in expense_entry.expenses:
-            expense_project = ""
-            expense_cost_center = ""
-            
-            if not detail.project and expense_entry.default_project:
-                expense_project = expense_entry.default_project
-            else:
-                expense_project = detail.project
-            
-            if not detail.cost_center and expense_entry.default_cost_center:
-                expense_cost_center = expense_entry.default_cost_center
-            else:
-                expense_cost_center = detail.cost_center
-
-            
+        for detail in expense_entry.expenses:            
 
             accounts.append({  
                 'debit_in_account_currency': float(detail.amount),
                 'user_remark': str(detail.description),
                 'account': detail.expense_account,
-                'project': expense_project,
-                'cost_center': expense_cost_center
+                'project': detail.project,
+                'cost_center': detail.cost_center
             })
 
         # finally add the payment account detail
 
         pay_account = ""
 
-        if (expense_entry.mode_of_payment != "Cash" and expense_entry.mode_of_payment != "Wire Transfer") and (not expense_entry.payment_reference):
+        if (expense_entry.mode_of_payment != "Cash" and (not 
+            expense_entry.payment_reference or not expense_entry.clearance_date)):
             frappe.throw(
                 title="Enter Payment Reference",
-                msg="Payment Reference is Required for all non-cash payments."
+                msg="Payment Reference and Date are Required for all non-cash payments."
             )
+        else:
+            expense_entry.clearance_date = ""
+            expense_entry.payment_reference = ""
+
 
         payment_mode = frappe.get_doc('Mode of Payment', expense_entry.mode_of_payment)
         for acc in payment_mode.accounts:

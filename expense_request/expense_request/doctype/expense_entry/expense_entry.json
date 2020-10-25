@@ -127,7 +127,7 @@
    "label": "Payment Reference"
   },
   {
-   "depends_on": "eval:doc.mode_of_payment == \"Cheque\" || doc.mode_of_payment == \"Wire Transfer\";",
+   "depends_on": "eval:doc.mode_of_payment != \"Cash\"",
    "fieldname": "clearance_date",
    "fieldtype": "Date",
    "label": "Reference / Clearance Date"
@@ -168,6 +168,7 @@
   },
   {
    "allow_in_quick_entry": 1,
+   "description": "Applies to all expenses below unless specified differently",
    "fieldname": "default_cost_center",
    "fieldtype": "Link",
    "label": "Default Cost Center",
@@ -175,6 +176,7 @@
    "remember_last_selected_value": 1
   },
   {
+   "description": "Only use when all expenses are project related",
    "fieldname": "default_project",
    "fieldtype": "Link",
    "label": "Default Project",
@@ -190,7 +192,7 @@
   }
  ],
  "is_submittable": 1,
- "modified": "2020-10-25 15:26:52.203812",
+ "modified": "2020-10-25 22:40:55.071779",
  "modified_by": "adam.daveed@gmail.com",
  "module": "Expense Request",
  "name": "Expense Entry",
