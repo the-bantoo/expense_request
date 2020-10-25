@@ -6,7 +6,11 @@
  "field_order": [
   "expense_account",
   "description",
-  "amount"
+  "amount",
+  "accounting_dimensions_section",
+  "cost_center",
+  "column_break_6",
+  "project"
  ],
  "fields": [
   {
@@ -33,11 +37,34 @@
    "label": "Amount",
    "precision": "2",
    "reqd": 1
+  },
+  {
+   "fieldname": "accounting_dimensions_section",
+   "fieldtype": "Section Break",
+   "label": "Accounting Dimensions"
+  },
+  {
+   "fetch_from": "expense_entry.default_cost_center",
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "label": "Cost Center",
+   "options": "Cost Center"
+  },
+  {
+   "fetch_from": "default_project",
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "Project"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
   }
  ],
  "istable": 1,
- "modified": "2020-10-20 22:08:46.360021",
- "modified_by": "Administrator",
+ "modified": "2020-10-25 16:08:20.802420",
+ "modified_by": "adam.daveed@gmail.com",
  "module": "Expense Request",
  "name": "Expense Entry Item",
  "owner": "Administrator",

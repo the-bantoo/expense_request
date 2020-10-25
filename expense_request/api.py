@@ -5,34 +5,56 @@ from frappe import utils
 """
 Todo
 
+Add sections to EE and EE Items
+Section: Accounting Dimensions
+- Project
+- Cost Center
+- Add approved amount on expense entry - auto filled from requested amount but changeable
+
+
+Complete functionality
+b. Add settings fields to Accounts Settings
+    Section: Expense Settings
+    - Link: Default Payment Account (Link: Mode of Payment) 
+      - Desc: Create a Mode of Payment for expenses and link it to your usual expenditure account like Petty Cash
+    - Checkbox: Notify all Approvers
+      - Desc: when a expense request is made
+    - Checkbox: Create Journals Automatically
+
 Add all the fixtures to the app so that it is fully portable
 a. Workflows
 b. Accounts Settings Fields
 
+Report
+
+
 Fix minor issues
-a. Approver field vanishing
-b. Cant set custom print format as default
+a. Cant set custom print format as default - without customisation
 
-Complete functionality
-a. Alert Approvers
-b. Print Format polish-up - Add signatures
-c. Add settings fields to Accounts Settings
-
-Section: Expenses
-- Checkbox to Automatically Create Journal Entries
-- Settings - Default Expenses Payment Account
+Rename App
 
 Tests
 
-More Features
-- Cost Centers
+More Features - v2
+- Alert Approvers - manual - for pending / draft
 - Tax Templates
 - Separate Request Document
+- Fix
+    - Prevent Making JE's before submission / non-approvers
+
+- Add dependant fields
+    - Workflow entries
+    - JV type: Expense Entry
+    - JV Account Reference Type: Expense Entry
+    - Mode of Payment: Petty Cash
 
 
 Done
   - Issues Fixed
     - Wire Transfer requires reference date, and minor improvements
+    - Approver field vanishing
+  
+  - Print Format improvements - (Not done: Add signatures)
   - Prevent duplicate entry - done
   - Workflow: Pending Approval, Approved (set-approved by)
   - Creation of JV
@@ -86,11 +108,27 @@ def make_journal_entry(expense_entry):
         accounts = []
 
         for detail in expense_entry.expenses:
+            expense_project = ""
+            expense_cost_center = ""
+            
+            if not detail.project and expense_entry.default_project:
+                expense_project = expense_entry.default_project
+            else:
+                expense_project = detail.project
+            
+            if not detail.cost_center and expense_entry.default_cost_center:
+                expense_cost_center = expense_entry.default_cost_center
+            else:
+                expense_cost_center = detail.cost_center
+
+            
+
             accounts.append({  
                 'debit_in_account_currency': float(detail.amount),
                 'user_remark': str(detail.description),
                 'account': detail.expense_account,
-                'project': expense_entry.project
+                'project': expense_project,
+                'cost_center': expense_cost_center
             })
 
         # finally add the payment account detail

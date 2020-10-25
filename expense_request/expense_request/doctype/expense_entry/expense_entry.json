@@ -13,11 +13,15 @@
   "posting_date",
   "required_by",
   "payment_to",
+  "accounting_dimensions_section",
+  "default_project",
+  "accounting_col",
+  "default_cost_center",
   "expense_details_section",
   "expenses",
   "section_break_8",
   "quantity",
-  "column_break_9",
+  "column_break_20",
   "total",
   "additional_information_section",
   "remarks",
@@ -26,7 +30,6 @@
   "mode_of_payment",
   "payment_reference",
   "clearance_date",
-  "project",
   "status",
   "amended_from"
  ],
@@ -118,12 +121,6 @@
    "reqd": 1
   },
   {
-   "fieldname": "project",
-   "fieldtype": "Link",
-   "label": "Project",
-   "options": "Project"
-  },
-  {
    "depends_on": "eval:doc.mode_of_payment != \"Cash\"",
    "fieldname": "payment_reference",
    "fieldtype": "Data",
@@ -159,18 +156,41 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "column_break_9",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "quantity",
    "fieldtype": "Read Only",
    "label": "Quantity",
    "print_hide": 1
+  },
+  {
+   "fieldname": "accounting_dimensions_section",
+   "fieldtype": "Section Break",
+   "label": "Accounting Dimensions"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "default_cost_center",
+   "fieldtype": "Link",
+   "label": "Default Cost Center",
+   "options": "Cost Center",
+   "remember_last_selected_value": 1
+  },
+  {
+   "fieldname": "default_project",
+   "fieldtype": "Link",
+   "label": "Default Project",
+   "options": "Project"
+  },
+  {
+   "fieldname": "accounting_col",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_20",
+   "fieldtype": "Column Break"
   }
  ],
  "is_submittable": 1,
- "modified": "2020-10-22 10:26:34.166445",
+ "modified": "2020-10-25 15:26:52.203812",
  "modified_by": "adam.daveed@gmail.com",
  "module": "Expense Request",
  "name": "Expense Entry",
