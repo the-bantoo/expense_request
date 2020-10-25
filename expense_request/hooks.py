@@ -157,5 +157,16 @@ fixtures = ["Workflow", "Workflow State", "Workflow Action Master", "Notificatio
 			"filters": [
 				"is_standard != 1"
 			]
+	},
+	{
+		"dt": "Report",
+			"filters": [
+				[
+					"ref_doctype", "in", [
+						"Expense Entry",
+						"Journal Entry"
+					]
+				]
+			]
 	}
 ]
