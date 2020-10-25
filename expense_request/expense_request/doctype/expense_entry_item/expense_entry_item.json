@@ -4,8 +4,10 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "expense_details_section",
   "expense_account",
   "description",
+  "column_break_4",
   "amount",
   "accounting_dimensions_section",
   "cost_center",
@@ -25,7 +27,7 @@
   {
    "bold": 1,
    "fieldname": "description",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "in_list_view": 1,
    "label": "Description"
   },
@@ -60,10 +62,19 @@
   {
    "fieldname": "column_break_6",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "expense_details_section",
+   "fieldtype": "Section Break",
+   "label": "Expense Details"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
   }
  ],
  "istable": 1,
- "modified": "2020-10-25 16:08:20.802420",
+ "modified": "2020-10-25 17:12:20.121236",
  "modified_by": "adam.daveed@gmail.com",
  "module": "Expense Request",
  "name": "Expense Entry Item",

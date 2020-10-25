@@ -5,12 +5,6 @@ from frappe import utils
 """
 Todo
 
-Add sections to EE and EE Items
-Section: Accounting Dimensions
-- Project
-- Cost Center
-- Add approved amount on expense entry - auto filled from requested amount but changeable
-
 
 Complete functionality
 b. Add settings fields to Accounts Settings
@@ -24,12 +18,13 @@ b. Add settings fields to Accounts Settings
 Add all the fixtures to the app so that it is fully portable
 a. Workflows
 b. Accounts Settings Fields
+c. Fix minor issues
+   - Cant set custom print format as default - without customisation
 
 Report
 
 
-Fix minor issues
-a. Cant set custom print format as default - without customisation
+
 
 Rename App
 
@@ -39,6 +34,8 @@ More Features - v2
 - Alert Approvers - manual - for pending / draft
 - Tax Templates
 - Separate Request Document
+   - Add approved amount on expense entry - auto filled from requested amount but changeable
+
 - Fix
     - Prevent Making JE's before submission / non-approvers
 
@@ -62,7 +59,17 @@ Done
   - Roles:
     - Expense Approver
   - Set authorising party
+
+  Add sections to EE and EE Items
+    Section: Accounting Dimensions
+    - Project
+    - Cost Center
+
+Enhancements
+- Added Cost Center Filters
 """
+
+
 def setup(expense_entry, method):
 
     # add expenses and set the total field

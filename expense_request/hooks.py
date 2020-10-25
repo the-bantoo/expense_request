@@ -124,3 +124,38 @@ doc_events = {
 # override_doctype_dashboards = {
 # 	"Task": "expenses.task.get_dashboard_data"
 # }
+
+
+fixtures = ["Workflow", "Workflow State", "Workflow Action Master", "Notification",
+	{
+		"dt": "Print Format",
+		"filters": [
+			[
+				"name", "in", [
+					"Expense Entry"
+				]
+			]
+		]
+
+	},
+	{
+		"dt": "Custom Field",
+		"filters": [
+			[
+				"name", "in", [
+					"Accounts Settings-expense_settings",
+					"Accounts Settings-default_mode_of_payment",
+					"Accounts Settings-column_break_16",
+					"Accounts Settings-notify_all_approvers",
+					"Accounts Settings-create_journals_entries_automatically"
+				]
+			]
+		]
+	},
+	{
+		"dt": "Notification",
+			"filters": [
+				"is_standard != 1"
+			]
+	}
+]

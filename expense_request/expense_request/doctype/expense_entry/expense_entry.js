@@ -10,6 +10,21 @@ frappe.ui.form.on('Expense Entry', {
 				]
 			}
 		});
+		frm.set_query("cost_center", 'expenses', () => {
+			return {
+				filters: [
+					["Cost Center", "is_group", "=", "0"]
+				]
+			}
+		});
+		frm.set_query("default_cost_center", () => {
+			return {
+				filters: [
+					["Cost Center", "is_group", "=", "0"]
+				]
+			}
+		});
+		
 	},
 	refresh: function(frm) {
 		frm.add_custom_button(__('Journal Entry'), function(){
