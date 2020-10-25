@@ -3,17 +3,10 @@ from frappe import _
 from frappe import utils
 
 """
-Todo
+TODO
 
 
-Complete functionality
-b. Add settings fields to Accounts Settings
-    Section: Expense Settings
-    - Link: Default Payment Account (Link: Mode of Payment) 
-      - Desc: Create a Mode of Payment for expenses and link it to your usual expenditure account like Petty Cash
-    - Checkbox: Notify all Approvers
-      - Desc: when a expense request is made
-    - Checkbox: Create Journals Automatically
+
 
 Add all the fixtures to the app so that it is fully portable
 a. Workflows
@@ -23,18 +16,13 @@ c. Fix minor issues
 
 Report
 
-
-
-
-Rename App
-
-Tests
-
 More Features - v2
 - Alert Approvers - manual - for pending / draft
 - Tax Templates
 - Separate Request Document
    - Add approved amount on expense entry - auto filled from requested amount but changeable
+- Rename App. Expense Voucher vs Expense Entry
+- Tests
 
 - Fix
     - Prevent Making JE's before submission / non-approvers
@@ -46,7 +34,7 @@ More Features - v2
     - Mode of Payment: Petty Cash
 
 
-Done
+DONE
   - Issues Fixed
     - Wire Transfer requires reference date, and minor improvements
     - Approver field vanishing
@@ -64,6 +52,14 @@ Done
     Section: Accounting Dimensions
     - Project
     - Cost Center
+
+  - Add settings fields to Accounts Settings
+    Section: Expense Settings
+    - Link: Default Payment Account (Link: Mode of Payment) 
+      - Desc: Create a Mode of Payment for expenses and link it to your usual expenditure account like Petty Cash
+    - Checkbox: Notify all Approvers
+      - Desc: when a expense request is made
+    - Checkbox: Create Journals Automatically
 
 Enhancements
 - Added Cost Center Filters
