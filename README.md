@@ -51,15 +51,17 @@ Section: Additional Information
 
 ## Installation
 
-```bench get-app https://github.com/the-bantoo/expense_request.git
-bench --site site-name install-app expense_request```
+```
+bench get-app https://github.com/the-bantoo/expense_request.git
+bench --site site-name install-app expense_request
+```
 
 
 #### What's Next
 This version
 - [x] Ask for community input
 - [x] Add to Accouting Menus, below JEs
-- [] Query Report
+- [ ] Query Report
 
 Later 
 - [ ] Alert Approvers
