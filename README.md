@@ -37,8 +37,11 @@ Section: Additional Information
 - Reference Date
 ```
 
-#### Expense Settings (?)
-- Expense Approver - Can be done from Accounts settings
+#### Accounts Settings (Customisation)
+- Default Mode of Payment
+- Alert Approvers (check)
+- Automatically create Journal Entries
+
 
 ## Expense Workflow
 1. Pending
