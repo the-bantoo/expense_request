@@ -192,14 +192,13 @@
   }
  ],
  "is_submittable": 1,
- "modified": "2020-10-26 16:56:19.165410",
- "modified_by": "adam@thebantoo.com",
+ "modified": "2020-10-30 12:14:26.377515",
+ "modified_by": "adam.daveed@gmail.com",
  "module": "Expense Request",
  "name": "Expense Entry",
  "owner": "Administrator",
  "permissions": [
   {
-   "create": 1,
    "delete": 1,
    "email": 1,
    "export": 1,
@@ -233,6 +232,17 @@
    "role": "System Manager",
    "share": 1,
    "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "share": 1,
    "write": 1
   }
  ],

@@ -5,15 +5,9 @@ from frappe import utils
 """
 TODO
 
-
-
-
-Add all the fixtures to the app so that it is fully portable
-a. Workflows
-b. Accounts Settings Fields
-c. Fix minor issues
-   - Cant set custom print format as default - without customisation
-
+Permissions 
+- Settings Checbox - Employee can create Expenses
+- Add Employee User Permission
 Report
 
 More Features - v2
@@ -60,6 +54,12 @@ DONE
     - Checkbox: Notify all Approvers
       - Desc: when a expense request is made
     - Checkbox: Create Journals Automatically
+
+Add all the fixtures to the app so that it is fully portable
+a. Workflows
+b. Accounts Settings Fields
+c. Fix minor issues
+   - Cant set custom print format as default - without customisation
 
 Enhancements
 - Added Cost Center Filters
