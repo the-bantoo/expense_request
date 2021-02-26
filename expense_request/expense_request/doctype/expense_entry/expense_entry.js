@@ -1,7 +1,6 @@
 // Copyright (c) 2020, Bantoo and contributors
 // For license information, please see license.txt
 
-
 function update_totals(frm, cdt, cdn){
 	var items = locals[cdt][cdn];
     var total = 0;
@@ -50,16 +49,14 @@ frappe.ui.form.on('Expense Entry', {
                 
                 if (cur_frm.doc.default_cost_center === "" || typeof cur_frm.doc.default_cost_center == 'undefined') {
                     frappe.validated = false;
-                    frappe.msgprint("Set a Default Cost Center or expense <strong>number " 
+                    frappe.msgprint("Set a Default Cost Center for expense <strong>number " 
                                     + (i + 1) + "</strong> has a Cost Center.");
                     return false;
                 }
                 else {
                     d.cost_center = cur_frm.doc.default_cost_center; 
                 }
-                
-            } 
-            
+            }
         }); 
         
     },
