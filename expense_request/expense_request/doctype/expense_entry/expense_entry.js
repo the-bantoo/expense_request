@@ -49,8 +49,8 @@ frappe.ui.form.on('Expense Entry', {
                 
                 if (cur_frm.doc.default_cost_center === "" || typeof cur_frm.doc.default_cost_center == 'undefined') {
                     frappe.validated = false;
-                    frappe.msgprint("Set a Default Cost Center for expense <strong>number " 
-                                    + (i + 1) + "</strong> has a Cost Center.");
+                    frappe.msgprint("Set a Default Cost Center or specify the Cost Center for expense <strong>number " 
+                                    + (i + 1) + "</strong>.");
                     return false;
                 }
                 else {
