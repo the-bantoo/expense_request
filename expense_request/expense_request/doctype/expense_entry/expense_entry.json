@@ -12,6 +12,7 @@
   "company",
   "column_break_1",
   "posting_date",
+  "set_posting_time",
   "required_by",
   "payment_to",
   "accounting_dimensions_section",
@@ -44,7 +45,9 @@
    "fieldname": "posting_date",
    "fieldtype": "Date",
    "in_list_view": 1,
-   "label": "Posting Date"
+   "label": "Posting Date",
+   "read_only": 1,
+   "read_only_depends_on": "eval: doc.set_posting_time == 0;"
   },
   {
    "allow_in_quick_entry": 1,
@@ -189,14 +192,21 @@
   {
    "fieldname": "column_break_20",
    "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "set_posting_time",
+   "fieldtype": "Check",
+   "label": "Edit Posting Date"
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2021-09-11 16:18:40.302048",
+ "modified": "2022-10-19 10:41:58.393012",
  "modified_by": "Administrator",
  "module": "Expense Request",
  "name": "Expense Entry",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {
@@ -250,5 +260,6 @@
  "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
+ "states": [],
  "track_changes": 1
 }

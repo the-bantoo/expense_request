@@ -167,7 +167,7 @@ def make_journal_entry(expense_entry):
             'title': expense_entry.name,
             'doctype': 'Journal Entry',
             'voucher_type': 'Journal Entry',
-            'posting_date': utils.today(),
+            'posting_date': expense_entry.posting_date,
             'company': expense_entry.company,
             'accounts': accounts,
             'user_remark': expense_entry.remarks,
