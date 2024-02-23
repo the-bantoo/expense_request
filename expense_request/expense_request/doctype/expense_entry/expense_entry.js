@@ -51,7 +51,7 @@ frappe.ui.form.on('Expense Entry', {
                 
                 if (cur_frm.doc.default_cost_center === "" || typeof cur_frm.doc.default_cost_center == 'undefined') {
                     frappe.validated = false;
-                    frappe.msgprint("Set a Default Cost Center or specify the Cost Center for expense <strong>number " 
+                    frappe.msgprint("Set a Default Cost Center or specify the Cost Center for expense <strong>No. " 
                                     + (i + 1) + "</strong>.");
                     return false;
                 }
@@ -66,30 +66,43 @@ frappe.ui.form.on('Expense Entry', {
         //update total and qty when an item is added
 	},
 	onload(frm) {
-	    //console.log("hello");
-
-		frm.set_query("expense_account", 'expenses', () => {
-			return {
-				filters: [
-					["Account", "root_type", "=", "Expense"],
-                    ["Account", "is_group", "=", "0"]
-				]
-			}
-		});
-		frm.set_query("cost_center", 'expenses', () => {
-			return {
-				filters: [
-					["Cost Center", "is_group", "=", "0"]
-				]
-			}
-		});
-		frm.set_query("default_cost_center", () => {
-			return {
-				filters: [
-					["Cost Center", "is_group", "=", "0"]
-				]
-			}
-		});
+        set_queries(frm);
+	},
+	company(frm) {
+        set_queries(frm);
+        unset_default_cost_center(frm);
 	}
-
 });
+
+
+function set_queries(frm) {
+    frm.set_query("expense_account", 'expenses', () => {
+        return {
+            filters: [
+                ["Account", "root_type", "=", "Expense"],
+                ["Account", "is_group", "=", "0"],
+                ["Account", "company", "=", frm.doc.company]
+            ]
+        }
+    });
+    frm.set_query("cost_center", 'expenses', () => {
+        return {
+            filters: [
+                ["Cost Center", "is_group", "=", "0"],
+                ["Cost Center", "company", "=", frm.doc.company]
+            ]
+        }
+    });
+    frm.set_query("default_cost_center", () => {
+        return {
+            filters: [
+                ["Cost Center", "is_group", "=", "0"],
+                ["Cost Center", "company", "=", frm.doc.company]
+            ]
+        }
+    });
+}
+
+function unset_default_cost_center(frm) {
+    frm.set_value("default_cost_center", '');
+}   
